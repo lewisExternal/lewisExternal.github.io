@@ -11,7 +11,119 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="icon" type="image/png" href="images/rabbit.png"/>	</head>
+		<link rel="icon" type="image/png" href="images/rabbit.png"/>
+		<style>
+			html { height: auto; min-height: 100%; }
+			body {
+				flex-direction: column;
+				align-items: stretch;
+				justify-content: flex-start;
+				overflow-y: auto;
+				overflow-x: hidden;
+				height: auto;
+				min-height: 100vh;
+			}
+			/* Remove the 5rem padding that causes white-space borders */
+			#page-wrapper {
+				width: 100%;
+				height: auto;
+				overflow: visible;
+				padding: 0 !important;
+				align-items: stretch;
+				justify-content: flex-start;
+			}
+			#wrapper {
+				flex-direction: column;
+				height: auto;
+				width: 100%;
+				box-shadow: none;
+				cursor: default;
+				position: static;
+				margin: 0 !important;
+			}
+			.panel {
+				width: 100% !important;
+				max-width: 100% !important;
+				height: auto !important;
+				overflow-x: hidden;
+				overflow-y: visible;
+				flex-shrink: 0;
+			}
+			#wrapper > .scrollZone { display: none !important; }
+			#wrapper > .copyright { position: static; padding: 1rem 2rem; text-align: right; }
+
+			/* Banner: side-by-side desktop, image fixed width */
+			.panel.banner {
+				flex-direction: row-reverse !important;
+				min-height: 32rem;
+			}
+			.panel.banner .content {
+				flex: 1 1 auto !important;
+				width: auto !important;
+				max-width: none !important;
+			}
+			.panel.banner .image {
+				flex: 0 0 32rem !important;
+				width: 32rem !important;
+				position: relative;
+			}
+
+			/* Spotlight: content fills full width */
+			.panel.spotlight > .content {
+				width: 100% !important;
+				max-width: 100% !important;
+				flex-basis: auto !important;
+			}
+
+			/* Gallery panel: intro above grid */
+			.gallery-panel {
+				flex-direction: column !important;
+				align-items: stretch !important;
+			}
+			.gallery-panel > .intro {
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+			.gallery-panel .gallery {
+				flex-wrap: wrap !important;
+				height: auto !important;
+				width: 100%;
+				align-items: flex-start;
+				align-content: flex-start;
+			}
+			.gallery-panel .gallery > *:not(.modal) {
+				width: 33.333% !important;
+				height: 20rem !important;
+			}
+
+			/* Tablet: 2-column gallery */
+			@media screen and (max-width: 980px) {
+				.gallery-panel .gallery > *:not(.modal) {
+					width: 50% !important;
+				}
+			}
+
+			/* Mobile: stack banner, 1-column gallery */
+			@media screen and (max-width: 736px) {
+				.panel.banner {
+					flex-direction: column-reverse !important;
+					min-height: 0;
+				}
+				.panel.banner .image {
+					flex: 0 0 22rem !important;
+					width: 100% !important;
+				}
+				.panel.banner .content {
+					flex: 1 1 auto !important;
+					width: 100% !important;
+				}
+				.gallery-panel .gallery > *:not(.modal) {
+					width: 100% !important;
+					height: 22rem !important;
+				}
+			}
+		</style>
+	</head>
 	<body class="is-preload">
 
 		<!-- Page Wrapper -->
@@ -235,14 +347,14 @@
 							</section> -->
 
 						<!-- Panel -->
-							<section class="panel">
+							<section class="panel gallery-panel">
 								<div class="intro color2">
 									<h2 class="major">GALLERY</h2>
 									<p>Images from prior events.</p>
 								</div>
 								<div class="gallery">
 									<a href="images/gallery/full/aws_summmit_london_2.jpg" class="image filtered span-3" data-position="right"><img src="images/gallery/full/aws_summmit_london_2.jpg" alt="" /></a>
-									<a href="images/gallery/full/aws_summmit_london_1.jpeg" class="image filtered span-3" data-position="centre"><img src="images/gallery/full/aws_summmit_london_1.jpeg" alt="" /></a>
+									<a href="images/gallery/full/aws_summmit_london_1.jpg" class="image filtered span-3" data-position="centre"><img src="images/gallery/full/aws_summmit_london_1.jpg" alt="" /></a>
 									<a href="images/gallery/full/aws_summmit_london_3.jpg" class="image filtered span-3" data-position="right"><img src="images/gallery/full/aws_summmit_london_3.jpg" alt="" /></a>
 									<a href="images/gallery/full/aws_summmit_london_4.jpg" class="image filtered span-3" data-position="centre"><img src="images/gallery/full/aws_summmit_london_4.jpg" alt="" /></a>																		
 									<a href="images/gallery/full/aws_11.jpg" class="image filtered span-3" data-position="bottom"><img src="images/gallery/full/aws_11.jpg" alt="" /></a>									
